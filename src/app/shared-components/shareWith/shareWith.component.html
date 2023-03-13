@@ -17,6 +17,41 @@
         </svg>
       </div>
     </div>
-    <div class="contacts-list"></div>
+    <div class="contacts-list">
+      <div class="search-bar">
+        <input type="text" placeholder="Buscar contacto">
+      </div>
+      <div class="contacts-form" *ngFor="let contact of contactList;index as i">
+      <div class="contact-list-item">
+        <div class="contact-initials">{{ getContactInitals(contact)}}</div>
+        <div class="name">{{contact}}</div>
+      </div>
+      <input type="radio" value="{{contact}}" (click)="addContact(contact,i)" [checked]="selected[i]">
+    </div>
+    </div>
+
+    <div class="footer-contacts">
+
+        <div class="contacts-selected" *ngIf="contactsSelected!.length<=3" >
+        <div class="contact-list-item"*ngFor="let contact of contactsSelected">
+          <div class="contact-initials">{{ getContactInitals(contact)}}</div>
+          <div class="name">{{contact}}</div>
+        </div>
+      </div>
+
+      <div class="contacts-selected" *ngIf="contactsSelected!.length>3">
+        <div class="contact-list-item"*ngIf="contactsSelected!.length==4">
+           <p>{{contactsSelected![0]}}, {{contactsSelected![1]}}, {{contactsSelected![2]}}, y otra persona más</p>
+
+        </div>
+        <div class="contact-list-item"*ngIf="contactsSelected!.length>4">
+          <p *ngIf="contactsSelected!.length>=5">{{contactsSelected![0]}}, {{contactsSelected![1]}}, {{contactsSelected![2]}}, y otros {{contactsSelected!.length-3}} contactos más</p>
+
+       </div>
+
+    </div>
+    <div class="button-box">
+      <button (click)="addContacts()">Compartir</button>
+    </div>
   </div>
 </div>

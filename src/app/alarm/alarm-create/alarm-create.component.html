@@ -5,6 +5,21 @@
     </div>
     <div class="form-box">
       <div class="hour-input"></div>
+      <div class="day-picker">
+        <div class="header-day">
+        <div>{{fechaString}}</div>
+        <svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M25.1164 25.8466H3.18399V10.0515H25.1164M20.4166 0V2.87184H7.8838V0H4.75059V2.87184H3.18399C1.44506 2.87184 0.0507812 4.14982 0.0507812 5.74369V25.8466C0.0507813 26.6083 0.380886 27.3387 0.968476 27.8773C1.55607 28.4159 2.35301 28.7184 3.18399 28.7184H25.1164C25.9474 28.7184 26.7443 28.4159 27.3319 27.8773C27.9195 27.3387 28.2496 26.6083 28.2496 25.8466V5.74369C28.2496 4.14982 26.8397 2.87184 25.1164 2.87184H23.5498V0" fill="#5B83A1"/>
+          </svg>
+
+      </div>
+        <div class="days">
+          <div class="day-item" *ngFor="let day of days" [ngClass]="{selected:selecedDays.indexOf(day)!=-1}" (click)="selectDay(day)">
+            <div *ngIf="day==='Mi'">M</div>
+            <div  *ngIf="day!='Mi'">{{day}}</div>
+          </div>
+        </div>
+      </div>
       <button class="type-button" (click)="openTypeModal()">
         <div>{{type}}</div>
         <svg
@@ -20,6 +35,7 @@
           />
         </svg>
       </button>
+
       <input
         type="text"
         placeholder="Ingresa el nombre(opcional)"
@@ -33,7 +49,7 @@
         <div class="settings-box">
           <app-alarm-settings [ajustes]="ajuset"></app-alarm-settings>
         </div>
-        <button class="shared-button">
+        <button class="shared-button" (click)="openContactModal()">
           <div>Compartido con</div>
           <svg
             width="8"
@@ -58,8 +74,9 @@
 <div *ngIf="settingsModal">
 <app-settings-create [ajuste]="ajuset" [accion]="ajustes"></app-settings-create>
 </div>
+
 <div *ngIf="typeModal">
 <app-setType [type]="type"></app-setType>
 </div>
-<app-shareWith></app-shareWith>
+<app-shareWith *ngIf="contactModal" [contactsSelected]="contactList"></app-shareWith>
 

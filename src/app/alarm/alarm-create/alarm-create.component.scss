@@ -37,6 +37,35 @@ $second-color: white;
       height: 12vh;
       background-color: red;
     }
+    .day-picker{
+      width: 100%;
+      height: 50px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+
+
+      .header-day{
+        color:#5B83A1;
+        justify-content: space-between;
+        display: flex;
+        align-items: center;
+      }
+      .days{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        color: #BEBEBE;
+        .day-item{
+          &:hover{
+            cursor: pointer;
+          }
+        }
+        .selected{
+          color:#5B83A1
+        }
+      }
+    }
     .type-button {
       width: 100%;
       height: 3.4vh;

@@ -15,16 +15,33 @@ export class AlarmCreateComponent implements OnInit {
   ajuset:Ajuste | undefined;
   constructor(private closeModalService:CloseModalService,private createAlarmService:CreateAlarmService) { }
   ajustes:string=""
+  contactList=["Contacto 1"]
+  contactModal=false
+  fechaString="Repetir cada"
+  days=["D","L","M","Mi","J","V","S"]
+  selecedDays=["D","L","M","Mi","J","V","S"]
   ngOnInit() {
 
     this.createAlarmService.$ajustes.subscribe((value)=>this.ajuset=value)
     this.createAlarmService.$settingAccion.subscribe((value)=>this.ajustes=value);
     this.ajuset=new Ajuste("No",1,"5 min");
+    this.closeModalService.$modalConact.subscribe((value)=>this.contactModal=value)
     this.createAlarmService.$alarmType.subscribe((value)=>this.type=value)
     this.closeModalService.$modalType.subscribe((value)=>this.typeModal=value);
     this.closeModalService.$modalSettings.subscribe((value)=>this.settingsModal=value)
   }
+  selectDay(value:string){
+   let  index=this.selecedDays.indexOf(value)
+   if(index==-1){
+    this.selecedDays.push(value)
 
+   }else{
+    this.selecedDays.splice(index,1)
+   }
+  }
+  openContactModal(){
+    this.contactModal=true
+  }
   openTypeModal(){
 
     this.typeModal=true;
