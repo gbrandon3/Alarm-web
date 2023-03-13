@@ -6,7 +6,7 @@ import { EventEmitter, Injectable } from '@angular/core';
 })
 export class CloseModalService {
 $modalType=new EventEmitter<any>();
-
+$modalSettings=new EventEmitter<any>();
 $modalConact=new EventEmitter<any>();
 constructor() { }
 

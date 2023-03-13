@@ -11,14 +11,20 @@ import { Ajuste } from '../alarm';
 export class AlarmCreateComponent implements OnInit {
   typeModal=false;
   type="Elegir tipo";
+  settingsModal=false
   ajuset:Ajuste | undefined;
   constructor(private closeModalService:CloseModalService,private createAlarmService:CreateAlarmService) { }
-
+  ajustes:string=""
   ngOnInit() {
+
+    this.createAlarmService.$ajustes.subscribe((value)=>this.ajuset=value)
+    this.createAlarmService.$settingAccion.subscribe((value)=>this.ajustes=value);
     this.ajuset=new Ajuste("No",1,"5 min");
-    this.createAlarmService.$ajustes.subscribe((value)=>this.type=value)
+    this.createAlarmService.$alarmType.subscribe((value)=>this.type=value)
     this.closeModalService.$modalType.subscribe((value)=>this.typeModal=value);
+    this.closeModalService.$modalSettings.subscribe((value)=>this.settingsModal=value)
   }
+
   openTypeModal(){
 
     this.typeModal=true;

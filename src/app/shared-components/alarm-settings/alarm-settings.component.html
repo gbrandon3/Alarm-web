@@ -1,7 +1,7 @@
 <div class="settings-info-box">
   <div class="settings-info-item">
     <p>Notificar cada</p>
-    <div class="setting-nav">
+    <div class="setting-nav" (click)="openModal('Notificar cada')">
       <p class="info">
         {{ ajustes!.notificarCada }}
       </p>
@@ -22,11 +22,12 @@
   </div>
   <div class="settings-info-item">
     <p>Notificar Antes</p>
-    <div class="setting-nav">
+    <div class="setting-nav" (click)="openModal('Notificar Antes')">
       <p class="info">
         {{ ajustes!.notificarAntes }}
       </p>
       <svg
+
         width="15"
         height="15"
         viewBox="0 0 15 15"
@@ -46,6 +47,7 @@
     <div class="setting-nav">
       <p class="info">{{ ajustes!.sonido }}</p>
       <svg
+
         width="15"
         height="15"
         viewBox="0 0 15 15"

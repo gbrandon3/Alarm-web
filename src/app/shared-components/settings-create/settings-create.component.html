@@ -1,7 +1,7 @@
 <div class="dialog-bg2">
-  <div class="set-type-box">
+  <div class="setting-box">
     <div class="col header">
-      <h1>Compartido con</h1>
+      <h1>{{accion}}</h1>
       <div class="exit-button" (click)="closeModal()">
         <svg
           width="21"
@@ -16,16 +16,17 @@
           />
         </svg>
       </div>
-    </div>
-    <div class="types">
 
-      <div class="type">
-
-        <div class="option">Evento <input type="radio" value="Evento" (click)="setType('Evento')" name="type" [checked]="isChecked('Evento')" ></div>
-      </div>
-      <div class="type">
-        <div class="option rec">Recordatorio <input type="radio" value="Recordatorio" (click)='setType("Recordatorio")' name="type" [checked]="isChecked('Recordatorio')"/></div>
-      </div>
     </div>
+
+
+      <div *ngIf="accion==='Notificar cada'" class="option-list">
+        <div class="option" *ngFor="let opc of opcionesR;index as i">{{opc}} <input type="radio" value={{valuesR[i]}}  (click)="selectOption(i)" [checked]="isSelected(i)" name="Repetir"></div>
+
+    </div>
+    <div *ngIf="accion==='Notificar Antes'" class="option-list">
+      <div class="option" *ngFor="let opc of opcionesN;index as i">{{opc}} <input type="radio" value={{valuesN[i]}}  (click)="selectOption(i)" [checked]="isSelected(i)" name="Repetir"></div>
+
+  </div>
   </div>
 </div>

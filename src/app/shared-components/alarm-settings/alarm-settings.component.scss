@@ -16,6 +16,9 @@ $second-color: white;
       display: flex;
       align-items: start;
       justify-content: space-between;
+      &:hover{
+        cursor: pointer;
+      }
       svg{
         margin-left: 15px;
         margin-right: 15px;

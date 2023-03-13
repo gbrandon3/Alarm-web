@@ -1,0 +1,58 @@
+.dialog-bg2 {
+  width: 100%;
+  z-index: 9;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  .setting-box {
+    width: 20vw;
+    height: 48vh;
+    background-color: #f5f8ff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    .option-list{
+      height: 80%;
+      width: 100%;
+
+      padding-left: 10px;
+      padding-right: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      .option{
+        display: flex;
+        height:20%;
+        justify-content: space-between;
+        width: 100%;
+        font-size: 1.8vh;
+        align-items: center;
+      }
+      input{
+       width: 1.8vh;
+       height: 1.8vh;
+      }
+    }
+    .header {
+      padding-top: 10px;
+      h1 {
+        text-align: center;
+        font-size: 2.9vh;
+        color: #33658a;
+        margin-bottom: 0px;
+      }
+      .exit-button {
+        position: absolute;
+        right: 25px;
+        top: 5px;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+    }
+  }
+}

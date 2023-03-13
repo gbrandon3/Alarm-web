@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Ajuste } from 'src/app/alarm/alarm';
+import { CloseModalService } from 'src/app/services/closeModal/closeModal.service';
+import { CreateAlarmService } from 'src/app/services/createAlarm/createAlarm.service';
 
 @Component({
   selector: 'app-alarm-settings',
@@ -8,9 +10,13 @@ import { Ajuste } from 'src/app/alarm/alarm';
 })
 export class AlarmSettingsComponent implements OnInit {
   @Input() ajustes:Ajuste | undefined;
-  constructor() { }
+  constructor(private serviceModal:CloseModalService,private crearAlarma:CreateAlarmService) { }
 
   ngOnInit() {
   }
+  openModal(accion:string){
 
+    this.serviceModal.$modalSettings.emit(true)
+    this.crearAlarma.$settingAccion.emit(accion)
+  }
 }
