@@ -1,0 +1,60 @@
+<div class="dialog-bg">
+  <div class="create-box">
+    <div class="header">
+      <h1>Crear alarma</h1>
+    </div>
+    <div class="form-box">
+      <div class="hour-input"></div>
+      <button class="type-button" (click)="openTypeModal()">
+        <div>{{type}}</div>
+        <svg
+          width="23"
+          height="3vh"
+          viewBox="0 0 23 29"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0 25.2683L14.2159 14.6707L0 4.04997L4.37652 0.787384L23 14.6707L4.37652 28.554L0 25.2683Z"
+            fill="#33658A"
+          />
+        </svg>
+      </button>
+      <input
+        type="text"
+        placeholder="Ingresa el nombre(opcional)"
+        class="nombre"
+      />
+      <div class="description-box">
+        <h2>Descripcion</h2>
+        <input type="text" class="description" />
+      </div>
+      <div class="additional-info">
+        <div class="settings-box">
+          <app-alarm-settings [ajustes]="ajuset"></app-alarm-settings>
+        </div>
+        <button class="shared-button">
+          <div>Compartido con</div>
+          <svg
+            width="8"
+            height="12"
+            viewBox="0 0 8 12"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 10.58L4.58 6L0 1.41L1.41 0L7.41 6L1.41 12L0 10.58Z"
+              fill="#4180AF"
+            />
+          </svg>
+        </button>
+
+
+      </div>
+      <button type="button" class="save"><div class="button-text">Guardar</div></button>
+    </div>
+  </div>
+</div>
+<div *ngIf="typeModal">
+<app-setType></app-setType>
+</div>

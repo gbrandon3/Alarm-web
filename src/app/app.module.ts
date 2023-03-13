@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { AlarmModule } from './alarm/alarm.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,7 +13,7 @@ import { LoginModule } from './login/login.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,LoginModule,HomeModule
+    AppRoutingModule,LoginModule,HomeModule,AlarmModule
   ],
   providers: [],
   bootstrap: [AppComponent]

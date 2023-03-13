@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AlarmComponent } from './alarm.component';
+import { EventDetailComponent } from './event-detail/event-detail.component';
+import { SharedComponentsModule } from '../shared-components/shared-components.module';
+import { AlarmCreateComponent } from './alarm-create/alarm-create.component';
+
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,SharedComponentsModule
   ],
-  declarations: [AlarmComponent]
+  declarations: [EventDetailComponent,AlarmCreateComponent]
 })
 export class AlarmModule { }

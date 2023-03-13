@@ -1,0 +1,51 @@
+<div class="dialog-bg">
+<div class="detail-box">
+  <div class="col">
+    <div class="col aling-item-center">
+      <div class="header">
+        <h1>Detalles</h1>
+      </div>
+      <div class="col">
+        <div class="info">
+          <h2>{{ evento!.nombre }}</h2>
+          <div class="basic-info">
+            <h4>Evento</h4>
+            <h4>{{ evento!.fecha }}</h4>
+          </div>
+          <h3>Descripcion</h3>
+          <div class="description-box">
+            <p>{{ evento!.description }}</p>
+          </div>
+          <div class="place-box">
+            {{ evento!.lugar }}
+          </div>
+          <div class="additional-info">
+            <div class="settings-box">
+              <app-alarm-settings
+                [ajustes]="evento!.ajuste"
+              ></app-alarm-settings>
+            </div>
+            <button class="shared-button" (click)="openModal()">
+              <div>Compartido con</div>
+              <svg
+                width="8"
+                height="12"
+                viewBox="0 0 8 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 10.58L4.58 6L0 1.41L1.41 0L7.41 6L1.41 12L0 10.58Z"
+                  fill="black"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div *ngIf="contactsOpened===true">
+<app-sharedwith [conactList]="evento!.contactList" ></app-sharedwith></div>

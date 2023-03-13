@@ -5,8 +5,8 @@
   align-items: center;
   justify-content: center;
   .login-section {
-    width: 1046px;
-    height: 754px;
+    width: 54%;
+    height: 70%;
     background-color: white;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
@@ -29,7 +29,7 @@
     button {
       filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
       width: 34%;
-      height: 60px;
+
       border-radius: 100px;
       border: 0px;
       background-color: #33658a;
@@ -45,7 +45,7 @@
         text-align: center;
         color: white;
         font-weight: 700;
-        font-size: 20px;
+        font-size: 1.8vh;
         line-height: 24px;
       }
       &:hover {
