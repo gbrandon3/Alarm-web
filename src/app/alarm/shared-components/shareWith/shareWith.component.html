@@ -24,7 +24,7 @@
       <div class="contacts-form" *ngFor="let contact of contactList;index as i">
       <div class="contact-list-item">
         <div class="contact-initials">{{ getContactInitals(contact)}}</div>
-        <div class="name">{{contact}}</div>
+        <div class="name" style="font-size: 1.8vh;">{{contact}}</div>
       </div>
       <input type="radio" value="{{contact}}" (click)="addContact(contact,i)" [checked]="selected[i]">
     </div>
@@ -32,20 +32,20 @@
 
     <div class="footer-contacts">
 
-        <div class="contacts-selected" *ngIf="contactsSelected!.length<=3" >
-        <div class="contact-list-item"*ngFor="let contact of contactsSelected">
+        <div class="contacts-selected" *ngIf="contactSelectedH!.length<=3" >
+        <div class="contact-list-item"*ngFor="let contact of contactSelectedH">
           <div class="contact-initials">{{ getContactInitals(contact)}}</div>
-          <div class="name">{{contact}}</div>
+          <div class="name" >{{contact}}</div>
         </div>
       </div>
 
-      <div class="contacts-selected" *ngIf="contactsSelected!.length>3">
-        <div class="contact-list-item"*ngIf="contactsSelected!.length==4">
-           <p>{{contactsSelected![0]}}, {{contactsSelected![1]}}, {{contactsSelected![2]}}, y otra persona más</p>
+      <div class="contacts-selected" *ngIf="contactSelectedH.length>3">
+        <div class="contact-list-item"*ngIf="contactSelectedH!.length==4">
+           <p>{{contactSelectedH![0]}}, {{contactSelectedH![1]}}, {{contactSelectedH![2]}}, y otra persona más</p>
 
         </div>
-        <div class="contact-list-item"*ngIf="contactsSelected!.length>4">
-          <p *ngIf="contactsSelected!.length>=5">{{contactsSelected![0]}}, {{contactsSelected![1]}}, {{contactsSelected![2]}}, y otros {{contactsSelected!.length-3}} contactos más</p>
+        <div class="contact-list-item"*ngIf="contactSelectedH.length>4">
+          <p *ngIf="contactSelectedH!.length>=5">{{contactSelectedH![0]}}, {{contactSelectedH![1]}}, {{contactSelectedH![2]}}, y otros {{contactSelectedH!.length-3}} contactos más</p>
 
        </div>
 

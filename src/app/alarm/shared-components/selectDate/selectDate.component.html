@@ -1,0 +1,31 @@
+<div class="dialog-bg2">
+  <div class="dialog2-box">
+    <div class="col header">
+      <h1>Elige la fecha</h1>
+      <div class="exit-button" (click)="closeModal()">
+        <svg
+          width="21"
+          height="20"
+          viewBox="0 0 21 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M20.7231 2.51662L18.6831 0.638916L10.5954 8.08316L2.50777 0.638916L0.467773 2.51662L8.55543 9.96087L0.467773 17.4051L2.50777 19.2828L10.5954 11.8386L18.6831 19.2828L20.7231 17.4051L12.6354 9.96087L20.7231 2.51662Z"
+            fill="black"
+          />
+        </svg>
+      </div>
+    </div>
+    <div class="calendar">
+      <mat-card
+        class="demo-inline-calendar-card"
+        [class.mat-elevation-z]="true"
+      >
+        <mat-calendar  [(selected)]="selected" (selectedChange)="selectDate($event)" [minDate]="todayDate"></mat-calendar>
+      </mat-card>
+
+    </div>
+    <div class="footer-date"><h3 (click)="closeModal()">Cancelar</h3></div>
+  </div>
+</div>

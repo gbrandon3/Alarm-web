@@ -1,0 +1,27 @@
+
+<div class="hour-input">
+  <div class="box">
+    <div class="choose">
+      <button class="choice" (click)="changeHour(-1)">{{hour[previoushour]}}</button>
+      <div class="selected">{{hour[randomHour]}}</div>
+      <button class="choice" (click)="changeHour(1)">{{hour[nextHour]}}</button>
+    </div>
+    <div class="choose">
+      <button class="choice" (click)="changeMinute(-1)">{{minutes[previousMinute]}}</button>
+      <div class="selected">{{minutes[randomMinute]}}</div>
+      <button class="choice" (click)="changeMinute(1)">{{minutes[nextMinute]}}</button>
+    </div>
+    <div class="choose">
+      <button class="time-choice" *ngIf="selectedTime==0"></button>
+      <button class="time-choice"  *ngIf="randomHour<=5 && selectedTime==1" (click)="changeTime()">{{time1[0]}}</button>
+      <button class="time-choice"  *ngIf="randomHour>5  && selectedTime==1" (click)="changeTime()">{{time2[0]}}</button>
+      <div class="selected-time" *ngIf="randomHour<=5">{{time1[selectedTime]}}</div>
+
+      <div class="selected-time" *ngIf="randomHour>5" >{{time2[selectedTime]}}</div>
+      <div class="time-choice" *ngIf="selectedTime==1"></div>
+      <button class="time-choice"  *ngIf="randomHour<=5 && selectedTime==0"  (click)="changeTime()">{{time1[1]}}</button>
+      <button class="time-choice"  *ngIf="randomHour>5  && selectedTime==0" (click)="changeTime()">{{time2[1]}}</button>
+    </div>
+  </div>
+</div>
+

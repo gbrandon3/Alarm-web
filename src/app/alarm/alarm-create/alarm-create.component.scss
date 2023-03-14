@@ -3,7 +3,15 @@ $second-color: white;
 .dialog-bg {
   width: 100vw;
   height: 100vh;
+  top: 0;
+  z-index: 9;
+  position: absolute;
   background-color: rgba(0, 0, 0, 0.5);
+}
+.calendar-icon-button {
+  &:hover {
+    cursor: pointer;
+  }
 }
 .create-box {
   width: 63.338vw;
@@ -11,7 +19,34 @@ $second-color: white;
   border-radius: 5px;
   background-color: $base-color;
   position: absolute;
+  .event-info {
+    margin-top: 10px;
+    width: 100%;
 
+    .inputs-group {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+
+      input {
+       padding-left: 10px;
+       padding-top: 5px;
+        width: 40%;
+        border: 0px;
+        font-size: 1.8vh;
+        border-radius: 5px;
+      padding-bottom: 5px;
+        height: 3vh;
+        &:focus {
+          border-color: 0px solid white;
+          outline: none;
+        }
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+      }
+    }
+  }
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -22,6 +57,14 @@ $second-color: white;
       font-size: 4.46vh;
       color: #33658a;
       margin-bottom: 0px;
+    }
+    .exit-button {
+      position: absolute;
+      right: 25px;
+      top: 5px;
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
   .form-box {
@@ -35,45 +78,124 @@ $second-color: white;
     .hour-input {
       width: 10.2vw;
       height: 12vh;
-      background-color: red;
+      margin-bottom: 20px;
+      .box {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        background-color: #f5f8ff;
+        align-items: center;
+        justify-content: space-evenly;
+        button {
+          border: 0px;
+          background-color: #f5f8ff;
+        }
+        .choose {
+          width: 33%;
+          height: 100%;
+          background-color: #f5f8ff;
+          display: flex;
+          flex-direction: column;
+          .selected {
+            border-width: 2px 0px;
+            border-style: solid;
+            border-color: #c2ddeb;
+            font-weight: 600;
+            height: 50%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 2vh;
+          }
+          .time-choice {
+            height: 25%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9c9c9c;
+            font-size: 1.8vh;
+            &:hover {
+              cursor: pointer;
+            }
+          }
+          .selected-choice {
+            height: 50%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+
+          }
+          .selected-time {
+            height: 50%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-width: 1px 0px;
+            border-style: solid;
+            border-color: #c2ddeb;
+            font-weight: 600;
+            font-size: 20px;
+          }
+          .choice {
+            height: 25%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9c9c9c;
+            font-size: 1.8vh;
+            &:hover {
+              cursor: pointer;
+            }
+          }
+        }
+      }
     }
-    .day-picker{
+    .day-picker {
       width: 100%;
       height: 50px;
       margin-top: 5px;
       margin-bottom: 5px;
 
-
-      .header-day{
-        color:#5B83A1;
+      .header-day {
+        color: #5b83a1;
         justify-content: space-between;
         display: flex;
         align-items: center;
       }
-      .days{
+      .days {
         display: flex;
         width: 100%;
         justify-content: space-between;
         align-items: center;
-        color: #BEBEBE;
-        .day-item{
-          &:hover{
+        color: #bebebe;
+        .day-item {
+          font-size: 1.5vh;
+          &:hover {
             cursor: pointer;
           }
         }
-        .selected{
-          color:#5B83A1
+        .selected {
+          color: #5b83a1;
         }
       }
     }
     .type-button {
       width: 100%;
       height: 3.4vh;
+      padding-left: 20px;
       display: flex;
       align-items: center;
       border-radius: 5px;
       justify-content: space-between;
       border: 0;
+      font-size: 1.8vh;
       background-color: white;
       filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
       color: #5b83a1;
@@ -82,24 +204,22 @@ $second-color: white;
     input[type="text"] {
       &.nombre {
         margin-top: 15px;
-        height: 3.4vh;
-      }
-      &.description {
-        height: 7.6vh;
-        padding-left: 10px;
-        overflow-y: auto;
         font-size: 1.5vh;
-      }
+        border: 0px;
+      border-radius: 5px;
+      width: 100%;
+      padding-top: 5px;
+      padding-bottom: 5px;
       padding-left: 20px;
+      filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+      }
+
 
       &:focus {
         border-color: 0px solid white;
         outline: none;
       }
-      border: 0px;
-      border-radius: 5px;
-      width: 100%;
-      filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
     }
 
     h2 {
@@ -124,6 +244,25 @@ $second-color: white;
       padding-top: 15px;
 
       font-size: 2.2vh;
+      .description {
+        height: 7.6vh;
+        width: 100%;
+        display: flex;
+        justify-items: start;
+        justify-content: start;
+        padding-left: 0px;
+        overflow-y: auto;
+        font-size: 1.5vh;
+        resize: none;
+        border: none;
+        padding-left: 10px;
+        border-radius: 5px;
+        &:focus {
+          border-color: 0px solid white;
+          outline: none;
+        }
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+      }
     }
     .place-box {
       margin-top: 15px;
@@ -154,6 +293,7 @@ $second-color: white;
         margin-left: 30px;
         height: 12%;
         width: 32%;
+        font-size: 1.8vh;
         display: flex;
         align-items: center;
         border-radius: 5px;

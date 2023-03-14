@@ -10,11 +10,15 @@ $second-color: white;
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    font-weight: 600;
     padding-left: 10px;
     padding-right: 10px;
+    p{
+      font-size: 1.5vh;
+    }
     .setting-nav {
       display: flex;
-      align-items: start;
+      align-items: flex-start;
       justify-content: space-between;
       &:hover{
         cursor: pointer;
@@ -23,10 +27,10 @@ $second-color: white;
         margin-left: 15px;
         margin-right: 15px;
       }
-      p {
-        font-style: normal;
-        font-weight: 400;
-        font-size: 1.8vh;
+      p{
+
+
+        font-size: 1.5vh;
         line-height: 24px;
         display: flex;
         align-items: center;

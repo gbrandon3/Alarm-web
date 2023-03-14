@@ -9,6 +9,7 @@ export class CreateAlarmService {
   $ajustes=new EventEmitter<Ajuste>();
   $settingAccion=new EventEmitter<string>();
   $compartidoCon=new EventEmitter<any>();
+  $date=new EventEmitter<string>();
 constructor() { }
 
 }

@@ -5,12 +5,20 @@
       <div class="search-input">
         <input type="text" placeholder="Buscar alarma" />
       </div>
-      <button>Filtrar</button>
+
     </div>
     <div class="alarm-list">
       <app-alarm-item></app-alarm-item>
     </div>
 
   </div>
-  <button class="button-add" (click)="openCreate()">ssss</button>
+  <button class="button-add" (click)="openCreate()">
+    <svg width="23" height="20" viewBox="0 0 23 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M22.5599 11.3909H13.0799V19.8187H9.91994V11.3909H0.439941V8.58165H9.91994V0.153839H13.0799V8.58165H22.5599V11.3909Z" fill="white"/>
+      </svg>
+
+  </button>
+
 </div>
+
+<app-alarm-create *ngIf="createModal"></app-alarm-create>

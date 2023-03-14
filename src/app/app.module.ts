@@ -6,16 +6,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeModule } from './home/home.module';
 import { LoginModule } from './login/login.module';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatNativeDateModule} from '@angular/material/core';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 @NgModule({
   declarations: [
     AppComponent
   ],
-  imports: [
+  imports: [MatNativeDateModule,
     BrowserModule,
-    AppRoutingModule,LoginModule,HomeModule,AlarmModule
+    AppRoutingModule,LoginModule,HomeModule,AlarmModule, BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'es-ES' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
