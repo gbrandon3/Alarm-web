@@ -52,7 +52,10 @@
     width: 80vw;
     margin: 34px;
     display: flex;
-    justify-content: center ;
+    justify-content: space-evenly ;
+    flex-direction: column;
+    align-self: center;
+
   }
   }
   .button-add{

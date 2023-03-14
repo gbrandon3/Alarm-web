@@ -1,4 +1,4 @@
-<div class="alarm-detail-item">
+<div class="alarm-detail-item" [ngClass]="{ev:alarm!.tipo==='Evento'}" >
   <div class="alarm-detail-preview">
     <div class="row">
       <div class="col-lg-6">
@@ -13,14 +13,14 @@
         </div>
       </div>
       <div class="col-lg-4">
-        <h3 class="compartido">
-          Compartido con: <span class="contacts">C1,C2</span>
+        <h3 class="compartido" *ngIf="alarm!.contactList.length>0">
+          Compartido con: <span class="contacts"*ngIf="alarm!.contactList.length==1"> 1 Persona</span>  <span class="contacts"*ngIf="alarm!.contactList.length>1">  {{alarm!.contactList.length}} Personas</span>
         </h3>
       </div>
       <div class="col-lg-1 align-self-end">
         <div class="row">
           <div class="col" style="padding-bottom: 5px;">
-            <svg
+          <a (click)="openDelete()"> <svg
               width="1.5vw"
               height="2.7vh"
               viewBox="0 0 30 31"
@@ -31,19 +31,24 @@
                 d="M9.375 0.923096V2.58976H0V5.9231H1.875V27.5898C1.875 28.4738 2.27009 29.3217 2.97335 29.9468C3.67661 30.5719 4.63044 30.9231 5.625 30.9231H24.375C25.3696 30.9231 26.3234 30.5719 27.0266 29.9468C27.7299 29.3217 28.125 28.4738 28.125 27.5898V5.9231H30V2.58976H20.625V0.923096H9.375ZM9.375 9.25643H13.125V24.2564H9.375V9.25643ZM16.875 9.25643H20.625V24.2564H16.875V9.25643Z"
                 fill="#5B83A1"
               />
-            </svg><svg svg
+
+            </svg> </a>
+
+            <a (click)="openEdit()"><svg svg
             width="1.5vw"
             height="2.7vh" viewBox="0 0 30 31" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M9.9723 26.1758H3.3241V3.31869H14.9584V10.4615H23.2687V14.8901L26.5928 12.033V9.03298L16.6205 0.461548H3.3241C1.49584 0.461548 0 1.74726 0 3.31869V26.1758C0 27.7473 1.49584 29.033 3.3241 29.033H9.9723V26.1758ZM26.9252 16.1758C27.0914 16.1758 27.4238 16.3187 27.59 16.4615L29.7507 18.3187C30.0831 18.6044 30.0831 19.1758 29.7507 19.4615L28.0886 20.8901L24.5983 17.8901L26.2604 16.4615C26.4266 16.3187 26.5928 16.1758 26.9252 16.1758ZM26.9252 21.7473L16.7867 30.4615H13.2964V27.4615L23.4349 18.7473L26.9252 21.7473Z" fill="#5B83A1"/>
               </svg>
 
-
+            </a>
           </div>
         </div>
       </div>
-      <div class="col-lg-1 align-self-center"><svg width="26" height="30" viewBox="0 0 26 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <div class="col-lg-1 align-self-center">
+        <a (click)="openDetail()"><svg width="26" height="30" viewBox="0 0 26 30" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M0 26.45L16.0702 15L0 3.525L4.94737 0L26 15L4.94737 30L0 26.45Z" fill="#5B83A1"/>
         </svg>
+      </a>
         </div>
     </div>
   </div>

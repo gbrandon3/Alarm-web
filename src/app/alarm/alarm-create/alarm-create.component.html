@@ -1,7 +1,7 @@
 <div class="dialog-bg">
   <div class="create-box">
     <div class="header">
-      <h1>Crear alarma</h1>
+      <h1>{{accion}}</h1>
       <div class="exit-button" (click)="closeModal()">
         <svg
           width="21"
@@ -18,117 +18,181 @@
       </div>
     </div>
     <form [formGroup]="alarmGroup">
-    <div class="form-box">
-      <div class="hour-input">
-        <div class="box">
-          <div class="choose">
-            <button class="choice" (click)="changeHour(-1)">{{hour[previousHour]}}</button>
-            <div class="selected">{{hour[selectedHour]}}</div>
-            <button class="choice" (click)="changeHour(1)">{{hour[nextHour]}}</button>
-          </div>
-          <div class="choose">
-            <button class="choice" (click)="changeMinute(-1)">{{minutes[previousMinute]}}</button>
-            <div class="selected">{{minutes[selectedMinute]}}</div>
-            <button class="choice" (click)="changeMinute(1)">{{minutes[nextMinute]}}</button>
-          </div>
-          <div class="choose">
-            <button class="time-choice" *ngIf="selectedTime==0"></button>
-            <button class="time-choice"  *ngIf="selectedHour<=5 && selectedTime==1" (click)="changeTime()">{{time1[0]}}</button>
-            <button class="time-choice"  *ngIf="selectedHour>5  && selectedTime==1" (click)="changeTime()">{{time2[0]}}</button>
-            <div class="selected-time" *ngIf="selectedHour<=5">{{time1[selectedTime]}}</div>
+      <div class="form-box">
+        <div class="hour-input">
+          <div class="box">
+            <div class="choose">
+              <button class="choice" (click)="changeHour(-1)">
+                {{ hour[previousHour] }}
+              </button>
+              <div class="selected">{{ hour[selectedHour] }}</div>
+              <button class="choice" (click)="changeHour(1)">
+                {{ hour[nextHour] }}
+              </button>
+            </div>
+            <div class="choose">
+              <button class="choice" (click)="changeMinute(-1)">
+                {{ minutes[previousMinute] }}
+              </button>
+              <div class="selected">{{ minutes[selectedMinute] }}</div>
+              <button class="choice" (click)="changeMinute(1)">
+                {{ minutes[nextMinute] }}
+              </button>
+            </div>
+            <div class="choose">
+              <button class="time-choice" *ngIf="selectedTime == 0"></button>
+              <button
+                class="time-choice"
+                *ngIf="selectedHour <= 5 && selectedTime == 1"
+                (click)="changeTime()"
+              >
+                {{ time1[0] }}
+              </button>
+              <button
+                class="time-choice"
+                *ngIf="selectedHour > 5 && selectedTime == 1"
+                (click)="changeTime()"
+              >
+                {{ time2[0] }}
+              </button>
+              <div class="selected-time" *ngIf="selectedHour <= 5">
+                {{ time1[selectedTime] }}
+              </div>
 
-            <div class="selected-time" *ngIf="selectedHour>5" >{{time2[selectedTime]}}</div>
-            <div class="time-choice" *ngIf="selectedTime==1"></div>
-            <button class="time-choice"  *ngIf="selectedHour<=5 && selectedTime==0"  (click)="changeTime()">{{time1[1]}}</button>
-            <button class="time-choice"  *ngIf="selectedHour>5  && selectedTime==0" (click)="changeTime()">{{time2[1]}}</button>
+              <div class="selected-time" *ngIf="selectedHour > 5">
+                {{ time2[selectedTime] }}
+              </div>
+              <div class="time-choice" *ngIf="selectedTime == 1"></div>
+              <button
+                class="time-choice"
+                *ngIf="selectedHour <= 5 && selectedTime == 0"
+                (click)="changeTime()"
+              >
+                {{ time1[1] }}
+              </button>
+              <button
+                class="time-choice"
+                *ngIf="selectedHour > 5 && selectedTime == 0"
+                (click)="changeTime()"
+              >
+                {{ time2[1] }}
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="day-picker" *ngIf="type==='Recordatorio'">
-        <div class="header-day">
-        <div>{{fechaString}}</div>
-        <div class="calendar-icon-button" (click)="openDateModal()">
-        <svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M25.1164 25.8466H3.18399V10.0515H25.1164M20.4166 0V2.87184H7.8838V0H4.75059V2.87184H3.18399C1.44506 2.87184 0.0507812 4.14982 0.0507812 5.74369V25.8466C0.0507813 26.6083 0.380886 27.3387 0.968476 27.8773C1.55607 28.4159 2.35301 28.7184 3.18399 28.7184H25.1164C25.9474 28.7184 26.7443 28.4159 27.3319 27.8773C27.9195 27.3387 28.2496 26.6083 28.2496 25.8466V5.74369C28.2496 4.14982 26.8397 2.87184 25.1164 2.87184H23.5498V0" fill="#5B83A1"/>
-          </svg>
-        </div>
-      </div>
-        <div class="days">
-          <div class="day-item" *ngFor="let day of days" [ngClass]="{selected:selecedDays.indexOf(day)!=-1}" (click)="selectDay(day)">
-            <div *ngIf="day==='Mi'">M</div>
-            <div  *ngIf="day!='Mi'">{{day}}</div>
+        <div class="day-picker" *ngIf="type === 'Recordatorio'">
+          <div class="header-day">
+            <div>{{ fechaString }}</div>
+            <div class="calendar-icon-button" (click)="openDateModal()">
+              <svg
+                width="29"
+                height="29"
+                viewBox="0 0 29 29"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M25.1164 25.8466H3.18399V10.0515H25.1164M20.4166 0V2.87184H7.8838V0H4.75059V2.87184H3.18399C1.44506 2.87184 0.0507812 4.14982 0.0507812 5.74369V25.8466C0.0507813 26.6083 0.380886 27.3387 0.968476 27.8773C1.55607 28.4159 2.35301 28.7184 3.18399 28.7184H25.1164C25.9474 28.7184 26.7443 28.4159 27.3319 27.8773C27.9195 27.3387 28.2496 26.6083 28.2496 25.8466V5.74369C28.2496 4.14982 26.8397 2.87184 25.1164 2.87184H23.5498V0"
+                  fill="#5B83A1"
+                />
+              </svg>
+            </div>
+          </div>
+          <div class="days">
+            <div
+              class="day-item"
+              *ngFor="let day of days"
+              [ngClass]="{ selected: selecedDays.indexOf(day) != -1 }"
+              (click)="selectDay(day)"
+            >
+              <div *ngIf="day === 'Mi'">M</div>
+              <div *ngIf="day != 'Mi'">{{ day }}</div>
+            </div>
           </div>
         </div>
-      </div>
-      <button class="type-button" (click)="openTypeModal()">
-        <div>{{type}}</div>
-        <svg
-          width="23"
-          height="3vh"
-          viewBox="0 0 23 29"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M0 25.2683L14.2159 14.6707L0 4.04997L4.37652 0.787384L23 14.6707L4.37652 28.554L0 25.2683Z"
-            fill="#33658A"
-          />
-        </svg>
-      </button>
-
-      <input
-        type="text"
-        placeholder="Ingresa el nombre(opcional)"
-        class="form-control nombre"
-
-        formControlName="nombre"
-      />
-
-      <div class="event-info" *ngIf="type==='Evento'">
-        <div class="inputs-group">
-          <input type="text" placeholder="Lugar">
-          <input type="date" placeholder="fecha">
-        </div>
-      </div>
-      <div class="description-box">
-        <h2>Descripcion</h2>
-        <textarea  class="description" placeholder="Descripcion(Opcional)"></textarea>
-      </div>
-      <div class="additional-info">
-        <div class="settings-box">
-          <app-alarm-settings [ajustes]="ajuset"></app-alarm-settings>
-        </div>
-        <button class="shared-button" (click)="openContactModal()">
-          <div>Compartido con</div>
+        <button class="type-button" (click)="openTypeModal()">
+          <div>{{ type }}</div>
           <svg
-            width="8"
-            height="12"
-            viewBox="0 0 8 12"
+            width="23"
+            height="3vh"
+            viewBox="0 0 23 29"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M0 10.58L4.58 6L0 1.41L1.41 0L7.41 6L1.41 12L0 10.58Z"
-              fill="#4180AF"
+              d="M0 25.2683L14.2159 14.6707L0 4.04997L4.37652 0.787384L23 14.6707L4.37652 28.554L0 25.2683Z"
+              fill="#33658A"
             />
           </svg>
         </button>
 
+        <input
+          type="text"
+          placeholder="Ingresa el nombre(opcional)"
+          class="form-control nombre"
+          formControlName="nombre"
+        />
 
+        <div class="event-info" *ngIf="type === 'Evento'">
+          <div class="inputs-group">
+            <input
+              type="text"
+              class="form-control"
+              formControlName="lugar"
+              placeholder="Lugar"
+            />
+            <input type="date"   class="form-control"
+            formControlName="fecha"placeholder="fecha" />
+          </div>
+        </div>
+        <div class="description-box">
+          <h2>Descripcion</h2>
+          <textarea
+            class="description"
+            formControlName="desc"
+            placeholder="Descripcion(Opcional)"
+          ></textarea>
+        </div>
+        <div class="additional-info">
+          <div class="settings-box">
+            <app-alarm-settings [ajustes]="ajuset"></app-alarm-settings>
+          </div>
+          <button class="shared-button" (click)="openContactModal()">
+            <div>Compartido con</div>
+            <svg
+              width="8"
+              height="12"
+              viewBox="0 0 8 12"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 10.58L4.58 6L0 1.41L1.41 0L7.41 6L1.41 12L0 10.58Z"
+                fill="#4180AF"
+              />
+            </svg>
+          </button>
+        </div>
+        <button  [disabled]="type==='Repetir cada'" class="save">
+          <div class="button-text">Guardar</div>
+        </button>
       </div>
-      <button type="button" class="save"><div class="button-text">Guardar</div></button>
-    </div>
-  </form>
+    </form>
   </div>
-
 </div>
 <div *ngIf="settingsModal">
-<app-settings-create [ajuste]="ajuset" [accion]="ajustes"></app-settings-create>
+  <app-settings-create
+    [ajuste]="ajuset"
+    [accion]="ajustes"
+  ></app-settings-create>
 </div>
 
 <div *ngIf="typeModal">
-<app-setType [type]="type"></app-setType>
+  <app-setType [type]="type"></app-setType>
 </div>
-<app-shareWith *ngIf="contactModal" [contactsSelected]="contactList"></app-shareWith>
+<app-shareWith
+  *ngIf="contactModal"
+  [contactsSelected]="contactList"
+></app-shareWith>
 
 <app-selectDate *ngIf="dateModal"></app-selectDate>

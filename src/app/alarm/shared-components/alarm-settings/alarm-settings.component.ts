@@ -10,7 +10,9 @@ import { CreateAlarmService } from 'src/app/services/createAlarm/createAlarm.ser
 })
 export class AlarmSettingsComponent implements OnInit {
   @Input() ajustes:Ajuste | undefined;
-  constructor(private serviceModal:CloseModalService,private crearAlarma:CreateAlarmService) { }
+  constructor(private serviceModal:CloseModalService,private crearAlarma:CreateAlarmService) {
+
+   }
 
   ngOnInit() {
   }

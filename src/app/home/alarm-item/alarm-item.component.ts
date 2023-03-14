@@ -1,16 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Alarm } from 'src/app/alarm/alarm';
+import { AlarmServiceService } from 'src/app/services/alarmService.service';
+import { CloseModalService } from 'src/app/services/closeModal/closeModal.service';
 @Component({
   selector: 'app-alarm-item',
   templateUrl: './alarm-item.component.html',
   styleUrls: ['./alarm-item.component.scss']
 })
 export class AlarmItemComponent implements OnInit {
-  alarm:Alarm | undefined;
-  constructor() { }
+ @Input() alarm:Alarm | undefined;
+ @Input() index:number
+  constructor(private openServiceModal:CloseModalService,private alarmService:AlarmServiceService) { }
 
   ngOnInit() {
-    this.alarm=new Alarm("Nombre","Recordatorio","10-03-2023 7:00 Noche",[])
-  }
 
+  }
+  openDelete(){}
+  openDetail(){
+    this.openServiceModal.$modalDetail.emit(true);
+    this.alarmService.$alarmType.emit(this.index)
+  }
+  openEdit(){
+    this.openServiceModal.$modalCreate.emit(true);
+    this.alarmService.$alarmType.emit(this.index)
+  }
 }

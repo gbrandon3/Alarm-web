@@ -1,6 +1,8 @@
 $base-color:#f5f8ff ;
 $second-color: white;
 .dialog-bg{
+  position:absolute;
+  top:0;
   width: 100vw;
   height: 100vh;
   background-color:rgba(0, 0, 0, 0.5) ;
@@ -22,6 +24,14 @@ $second-color: white;
       font-size: 4.46vh;
       color: #33658a;
       margin-bottom: 0px;
+    }
+    .exit-button {
+      position: absolute;
+      right: 25px;
+      top: 5px;
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
   .info {

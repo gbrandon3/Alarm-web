@@ -8,7 +8,7 @@
 
     </div>
     <div class="alarm-list">
-      <app-alarm-item></app-alarm-item>
+      <app-alarm-item *ngFor="let alarma of alarms;index as i" [alarm]="alarma" [index]="i"></app-alarm-item>
     </div>
 
   </div>
@@ -20,5 +20,5 @@
   </button>
 
 </div>
-
-<app-alarm-create *ngIf="createModal"></app-alarm-create>
+<app-event-detail  *ngIf="detailModal" [evento]="alarms[selected]"></app-event-detail>
+<app-alarm-create *ngIf="createModal" [accion]="accion" [alarma]="alarms[selected]"></app-alarm-create>
