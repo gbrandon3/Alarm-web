@@ -1,11 +1,12 @@
 .dialog-bg2 {
   width: 100%;
-  z-index: 9;
+  z-index: 10;
   height: 100%;
   position: absolute;
   top: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5);}
   .shared-with-box {
+    z-index: 11;
     height: 50vh;
     width: 30.14vw;
     background-color: #f5f8ff;
@@ -62,4 +63,3 @@
       }
     }
   }
-}

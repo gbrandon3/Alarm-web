@@ -1,4 +1,4 @@
-<div class="dialog-bg">
+<div class="dialog-bg"(click)="closeModal()" ></div>
 <div class="detail-box">
   <div class="col">
     <div class="col aling-item-center">
@@ -60,6 +60,6 @@
     </div>
   </div>
 </div>
-</div>
+
 <div *ngIf="contactsOpened===true">
 <app-sharedwith [conactList]="evento!.contactList" ></app-sharedwith></div>

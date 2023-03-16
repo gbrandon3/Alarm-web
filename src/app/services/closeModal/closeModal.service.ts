@@ -11,6 +11,7 @@ $modalConact=new EventEmitter<any>();
 $modalDate=new EventEmitter<boolean>();
 $modalCreate=new EventEmitter<boolean>();
 $modalDetail=new EventEmitter<boolean>();
+$modalDelete=new EventEmitter<boolean>();
 constructor() { }
 
 }

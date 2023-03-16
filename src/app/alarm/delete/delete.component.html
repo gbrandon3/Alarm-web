@@ -1,3 +1,10 @@
-<p>
-  delete works!
-</p>
+<div class="dialog-bg" (click)="closeModal()"  >
+
+</div>
+<div class="delete-box">
+  <div class="message">Seguro que desea eliminar esta alarma</div>
+  <div class="actions">
+    <button (click)="closeModal()">Si</button>
+    <button (click)="closeModal()">No</button>
+  </div>
+</div>

@@ -15,7 +15,7 @@ export class AlarmItemComponent implements OnInit {
   ngOnInit() {
 
   }
-  openDelete(){}
+
   openDetail(){
     this.openServiceModal.$modalDetail.emit(true);
     this.alarmService.$alarmType.emit(this.index)
@@ -23,5 +23,8 @@ export class AlarmItemComponent implements OnInit {
   openEdit(){
     this.openServiceModal.$modalCreate.emit(true);
     this.alarmService.$alarmType.emit(this.index)
+  }
+  openDelete(){
+    this.openServiceModal.$modalDelete.emit(true);
   }
 }

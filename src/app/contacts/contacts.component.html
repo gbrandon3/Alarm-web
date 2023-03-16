@@ -1,0 +1,22 @@
+
+      <app-trail [selectedI]="2" style="z-index: 4;position: relative;"></app-trail>
+
+      <div class="list">
+
+    <div class="header">
+    <h1>Contactos</h1>
+  </div>
+  <div class="search-bar">
+    Buscar
+    <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M7.42857 0C9.39875 0 11.2882 0.704385 12.6814 1.9582C14.0745 3.21201 14.8571 4.91255 14.8571 6.68571C14.8571 8.34171 14.1829 9.864 13.0743 11.0366L13.3829 11.3143H14.2857L20 16.4571L18.2857 18L12.5714 12.8571V12.0446L12.2629 11.7669C10.96 12.7646 9.26857 13.3714 7.42857 13.3714C5.45839 13.3714 3.56891 12.667 2.17578 11.4132C0.782651 10.1594 0 8.45888 0 6.68571C0 4.91255 0.782651 3.21201 2.17578 1.9582C3.56891 0.704385 5.45839 0 7.42857 0ZM7.42857 2.05714C4.57143 2.05714 2.28571 4.11429 2.28571 6.68571C2.28571 9.25714 4.57143 11.3143 7.42857 11.3143C10.2857 11.3143 12.5714 9.25714 12.5714 6.68571C12.5714 4.11429 10.2857 2.05714 7.42857 2.05714Z" fill="#33658A"/>
+      </svg>
+
+  </div>
+<div class="contacts">
+          <div class="contact-list-item" *ngFor="let cont of contactList;">
+            <div class="contact-initials">{{getContactInitals(cont)}}</div>
+            <div class="name">{{cont}}</div>
+          </div>
+        </div>
+      </div>

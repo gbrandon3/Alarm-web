@@ -1,5 +1,9 @@
 $base-color:#f5f8ff ;
 $second-color: white;
+.shared-button{
+  font-size: 1.8vh;
+  color: #5b83a1;
+}
 .dialog-bg{
   position:absolute;
   top:0;
@@ -8,6 +12,7 @@ $second-color: white;
   background-color:rgba(0, 0, 0, 0.5) ;
 }
 .detail-box {
+  z-index: 10;
   width: 63.338vw;
   height: 70vh;
   border-radius: 5px;

@@ -1,0 +1,34 @@
+<div class="week">
+  <h1>Esta semana</h1>
+  <div class="week-box">
+    <div
+      class="week-column"
+      *ngFor="let hour of hours; index as i2"
+      [ngClass]="{ header: i2 == 0 }"
+    >
+      <div class="week-item" *ngFor="let day of days; index as i">
+        <div class="text" *ngIf="i >1 && i2 == 0">{{ day }}</div>
+        <div class="text" *ngIf="i == 1 && i2 == 0">Hoy</div>
+        <div class="text hour" *ngIf="i == 0 && i2 != 0">{{ hour }}</div>
+        <div *ngIf="i == 5 && i2 == 3" class="alarma">
+          <div div class="evento">Evento</div>
+        </div>
+        <div *ngIf="i == 4 && i2 == 4" class="alarma">
+          <div div class="recordatorio">Levantarse</div>
+        </div>
+        <div *ngIf="i == 3 && i2 == 6" class="alarma">
+          <div div class="recordatorio">Levantarse</div>
+        </div>
+        <div *ngIf="i == 1 && i2 == 8" class="alarma">
+          <div div class="evento">Evento</div>
+        </div>
+        <div *ngIf="i == 1 && i2 == 10" class="alarma">
+          <div div class="recordatorio">Tomar pastilla</div>
+        </div>
+        <div *ngIf="i == 1 && i2 == 13" class="alarma">
+          <div div class="recordatorio">Ir al trabajo</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

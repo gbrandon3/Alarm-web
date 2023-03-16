@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CloseModalService } from 'src/app/services/closeModal/closeModal.service';
 
 @Component({
   selector: 'app-delete',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeleteComponent implements OnInit {
 
-  constructor() { }
+  constructor(private closeModalService:CloseModalService) { }
 
   ngOnInit() {
   }
 
+  closeModal() {
+    this.closeModalService.$modalDelete.emit(false);
+
+  }
 }

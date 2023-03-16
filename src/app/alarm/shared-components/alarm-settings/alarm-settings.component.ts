@@ -10,6 +10,7 @@ import { CreateAlarmService } from 'src/app/services/createAlarm/createAlarm.ser
 })
 export class AlarmSettingsComponent implements OnInit {
   @Input() ajustes:Ajuste | undefined;
+  @Input() creating:boolean;
   constructor(private serviceModal:CloseModalService,private crearAlarma:CreateAlarmService) {
 
    }
@@ -17,8 +18,8 @@ export class AlarmSettingsComponent implements OnInit {
   ngOnInit() {
   }
   openModal(accion:string){
-
+    if(this.creating){
     this.serviceModal.$modalSettings.emit(true)
-    this.crearAlarma.$settingAccion.emit(accion)
+    this.crearAlarma.$settingAccion.emit(accion)}
   }
 }

@@ -6,6 +6,7 @@
         {{ ajustes!.notificarCada }}
       </p>
       <svg
+      *ngIf="creating"
         width="15"
         height="15"
         viewBox="0 0 15 15"
@@ -27,7 +28,7 @@
         {{ ajustes!.notificarAntes }}
       </p>
       <svg
-
+        *ngIf="creating"
         width="15"
         height="15"
         viewBox="0 0 15 15"

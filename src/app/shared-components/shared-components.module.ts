@@ -10,11 +10,12 @@ import { SelectDateComponent } from '../alarm/shared-components/selectDate/selec
 import {MatCardModule} from '@angular/material/card';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { HourPickerComponent } from '../alarm/shared-components/hour-picker/hour-picker.component';
+import { DatepickerComponent } from '../calendar/components/datepicker/datepicker.component';
 @NgModule({
   imports: [
     CommonModule,MatDatepickerModule,MatCardModule
   ],
-  exports:[TrailComponent,AlarmSettingsComponent,SharedwithComponent,SetTypeComponent,SettingsCreateComponent,ShareWithComponent,SelectDateComponent,HourPickerComponent],
-  declarations: [TrailComponent,AlarmSettingsComponent,SharedwithComponent,SetTypeComponent,SettingsCreateComponent,ShareWithComponent,SelectDateComponent,HourPickerComponent]
+  exports:[TrailComponent,AlarmSettingsComponent,SharedwithComponent,SetTypeComponent,SettingsCreateComponent,ShareWithComponent,SelectDateComponent,HourPickerComponent,DatepickerComponent],
+  declarations: [TrailComponent,AlarmSettingsComponent,SharedwithComponent,SetTypeComponent,SettingsCreateComponent,ShareWithComponent,SelectDateComponent,HourPickerComponent,DatepickerComponent]
 })
 export class SharedComponentsModule { }

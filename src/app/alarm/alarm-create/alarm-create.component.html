@@ -1,4 +1,4 @@
-<div class="dialog-bg">
+<div class="dialog-bg" (click)="closeModal()"></div>
   <div class="create-box">
     <div class="header">
       <h1>{{accion}}</h1>
@@ -155,10 +155,10 @@
         </div>
         <div class="additional-info">
           <div class="settings-box">
-            <app-alarm-settings [ajustes]="ajuset"></app-alarm-settings>
+            <app-alarm-settings [ajustes]="ajuset" [creating]="true"></app-alarm-settings>
           </div>
           <button class="shared-button" (click)="openContactModal()">
-            <div>Compartido con</div>
+            <div>Compartir con</div>
             <svg
               width="8"
               height="12"
@@ -174,12 +174,12 @@
           </button>
         </div>
         <button  [disabled]="type==='Repetir cada'" class="save">
-          <div class="button-text">Guardar</div>
+          <div class="button-text" (click)="closeModal()">Guardar</div>
         </button>
       </div>
     </form>
   </div>
-</div>
+
 <div *ngIf="settingsModal">
   <app-settings-create
     [ajuste]="ajuset"

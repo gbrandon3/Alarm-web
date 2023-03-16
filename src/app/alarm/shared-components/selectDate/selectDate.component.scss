@@ -1,12 +1,13 @@
 $background-color:#f5f8ff;
 .dialog-bg2 {
   width: 100%;
-  z-index: 9;
+  z-index: 11;
   height: 100%;
   position: absolute;
   top: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5);}
   .dialog2-box {
+    z-index: 12;
     width: 35vw;
     height: 60vh;
     background-color: $background-color;
@@ -53,7 +54,7 @@ $background-color:#f5f8ff;
 
     }
   }
-}
+
 
 .demo-inline-calendar-card {
   width: 25vw;

@@ -1,6 +1,7 @@
 <div class="body">
-  <app-trail></app-trail>
+  <app-trail [selectedI]="0"></app-trail>
   <div class="content">
+    <div class="header"><h1>Alarmas creadas</h1></div>
     <div class="searchSection">
       <div class="search-input">
         <input type="text" placeholder="Buscar alarma" />
@@ -22,3 +23,4 @@
 </div>
 <app-event-detail  *ngIf="detailModal" [evento]="alarms[selected]"></app-event-detail>
 <app-alarm-create *ngIf="createModal" [accion]="accion" [alarma]="alarms[selected]"></app-alarm-create>
+<app-delete *ngIf="deleteModal"></app-delete>

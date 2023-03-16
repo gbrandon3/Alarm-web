@@ -1,0 +1,15 @@
+<div class="schedule">
+  <h1>Hoy</h1>
+  <div class="schedule-box">
+
+    <div class="hour-item" *ngFor="let hour of hours;index as i">
+      <div class="hour">{{hour}}</div>
+      <div class="box" >
+
+        <div *ngIf="alarms.includes(hour)" class="alarmtype" [ngClass]="{evento:getType(i)}">
+          {{getName(i)}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
